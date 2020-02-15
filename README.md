@@ -110,3 +110,12 @@ class APITodoView(View):
 * curl http://localhost:8000/api_todo -L
 
 上記により、レスポンスとしてJSONが得られる。
+
+## DBのテーブル作成
+
+modelを作成後、以下コマンドを実行。
+
+* python3 manage.py makemigrations api_todo
+* python3 manage.py migrate api_todo
+
+コマンドを実行後、DB上にテーブルが作成される
