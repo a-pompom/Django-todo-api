@@ -17,10 +17,8 @@ class GetRequestTests(APITestCase):
 
         url = reverse('home_pk', kwargs={'pk': pk})
 
-
-        print(url)
         response = self.client.delete(url)
 
+        # 削除された状態が作り出されたか
         self.assertEqual(TodoItem.objects.count(), 0)
-
         self.assertEqual(response.status_code, 204)

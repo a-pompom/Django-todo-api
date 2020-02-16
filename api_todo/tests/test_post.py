@@ -23,7 +23,6 @@ class GetRequestTests(APITestCase):
         response = self.client.post(TARGET_URL, params, format='json')
 
         self.assertEqual(TodoItem.objects.count(), 2)
-
         self.assertEqual(response.status_code, 201)
 
         item = TodoItem.objects.filter(task_name='post_task')[0]
@@ -49,9 +48,9 @@ class GetRequestTests(APITestCase):
         response = self.client.post(TARGET_URL, params, format='json')
 
         self.assertEqual(TodoItem.objects.count(), 1)
-
         self.assertEqual(response.status_code, 400)
         
+        # エラーメッセージを検証
         actual = json.loads(response.content)['task_name'][0]
         expected = 'タスク名を入力してください。'
 

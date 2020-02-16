@@ -6,6 +6,7 @@ from api_todo.models import TodoItem
 
 class GetRequestTests(APITestCase):
 
+    # DBの初期状態を定義
     def setUp(self):
         self.task = TodoItem.objects.create(
             task_name = 'task1',
@@ -26,11 +27,9 @@ class GetRequestTests(APITestCase):
 
         response = self.client.get(TARGET_URL, None, format='json')
 
+        # レスポンスからディクショナリを取得し、期待結果と比較
         responseJSON = json.loads(response.content)[0]
         actual = {'task_name': responseJSON['task_name'], 'done': responseJSON['done']}
         expected = {'task_name': 'task1', 'done': False}
 
-        print(actual)
-        print(expected)
-
-        self.assertEqual('', '')
+        self.assertEqual(actual, expected)
