@@ -119,3 +119,7 @@ modelを作成後、以下コマンドを実行。
 * python3 manage.py migrate api_todo
 
 コマンドを実行後、DB上にテーブルが作成される
+
+## RESTフレームワークの導入
+
+settings.pyのINSTALLED_APPSへ、「rest_framework」を追記することで利用可能となる。 
